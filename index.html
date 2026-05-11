@@ -4,22 +4,95 @@
     <meta charset="UTF-8">
     <title>Мій сайт</title>
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Світлий фон навколо "паперу" */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Фіолетова полоска меню */
+        nav {
+            width: 100%;
+            background-color: #6a1b9a; /* Фіолетовий колір */
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* Кнопки в меню */
+        .nav-btn {
+            text-decoration: none;
+            color: white;
+            background-color: #8e24aa;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
+            font-weight: bold;
+        }
+
+        .nav-btn:hover {
+            background-color: #ab47bc;
+        }
+
+        /* Контейнер у вигляді обірваного паперу */
+        .paper-content {
+            background: white;
+            width: 80%;
+            max-width: 800px;
+            margin-top: 40px;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            /* Ефект рваного краю знизу */
+            filter: drop-shadow(0px 5px 2px rgba(0,0,0,0.1));
+        }
+
+        .paper-content::after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            width: 100%;
+            height: 25px;
+            background: white;
+            /* Створюємо "зубчастий" рваний край за допомогою градієнта */
+            clip-path: polygon(0% 0%, 100% 0%, 100% 10%, 95% 40%, 90% 15%, 85% 60%, 80% 20%, 75% 80%, 70% 30%, 65% 90%, 60% 40%, 55% 70%, 50% 20%, 45% 85%, 40% 30%, 35% 65%, 30% 15%, 25% 75%, 20% 40%, 15% 90%, 10% 25%, 5% 50%, 0% 10%);
+        }
+
         .header-image {
             display: block;
-            margin: 0 auto 20px auto; /* Центрує по горизонталі та додає відступ знизу */
-            max-width: 200px;         /* Обмежує ширину картинки */
-            height: auto;             /* Зберігає пропорції */
+            margin: 0 auto 20px auto;
+            max-width: 180px;
+            height: auto;
+            border-radius: 10px;
         }
-        body {
-            text-align: center;       /* Центрує текст на сторінці */
+
+        h1, p {
+            text-align: center;
+            color: #333;
         }
     </style>
 </head>
 <body>
-    <img src="736295ce72f0d00617ffa534e2824c3e.jpg" alt="Логотип" class="header-image">
 
-    <h1>Вітаю на моєму новому сайті!</h1>
-    <p>Це головна сторінка.</p>
-    <a href="about.html">Перейти на сторінку "Про мене"</a>
+    <nav>
+        <a href="index.html" class="nav-btn">Головна</a>
+        <a href="about.html" class="nav-btn">Про мене</a>
+        <a href="#" class="nav-btn">Контакти</a>
+    </nav>
+
+    <div class="paper-content">
+        <img src="736295ce72f0d00617ffa534e2824c3e.jpg" alt="Логотип" class="header-image">
+
+        <h1>Вітаю на моєму новому сайті!</h1>
+        <p>Це головна сторінка, оформлена як аркуш паперу.</p>
+        <p>Тут ви можете розмістити будь-який опис вашого проекту.</p>
+    </div>
+
 </body>
 </html>
