@@ -2,97 +2,183 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Мій сайт</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Атестація з інформатики - Рєзнікова Єлизавета</title>
     <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #166088;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #2b2d42;
+            --accent-color: #e07a5f;
+        }
+
         body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0; /* Світлий фон навколо "паперу" */
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-weight: 600;
+        }
+
+        header p {
+            margin: 0.5rem 0 0 0;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .student-info {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .student-info h2 {
+            margin: 0 0 0.5rem 0;
+            color: var(--secondary-color);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
-            align-items: center;
         }
 
-        /* Фіолетова полоска меню */
-        nav {
-            width: 100%;
-            background-color: #6a1b9a; /* Фіолетовий колір */
-            padding: 15px 0;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
         }
 
-        /* Кнопки в меню */
-        .nav-btn {
-            text-decoration: none;
+        .card-header {
+            background-color: var(--primary-color);
             color: white;
-            background-color: #8e24aa;
-            padding: 10px 20px;
-            margin: 0 10px;
-            border-radius: 5px;
-            transition: background 0.3s;
+            padding: 1rem;
             font-weight: bold;
+            font-size: 1.1rem;
         }
 
-        .nav-btn:hover {
-            background-color: #ab47bc;
+        .card-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        /* Контейнер у вигляді обірваного паперу */
-        .paper-content {
-            background: white;
-            width: 80%;
-            max-width: 800px;
-            margin-top: 40px;
-            padding: 40px;
-            position: relative;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            /* Ефект рваного краю знизу */
-            filter: drop-shadow(0px 5px 2px rgba(0,0,0,0.1));
+        .card-body p {
+            margin: 0 0 1.5rem 0;
         }
 
-        .paper-content::after {
-            content: "";
-            position: absolute;
-            bottom: -20px;
-            left: 0;
-            width: 100%;
-            height: 25px;
-            background: white;
-            /* Створюємо "зубчастий" рваний край за допомогою градієнта */
-            clip-path: polygon(0% 0%, 100% 0%, 100% 10%, 95% 40%, 90% 15%, 85% 60%, 80% 20%, 75% 80%, 70% 30%, 65% 90%, 60% 40%, 55% 70%, 50% 20%, 45% 85%, 40% 30%, 35% 65%, 30% 15%, 25% 75%, 20% 40%, 15% 90%, 10% 25%, 5% 50%, 0% 10%);
-        }
-
-        .header-image {
-            display: block;
-            margin: 0 auto 20px auto;
-            max-width: 180px;
-            height: auto;
-            border-radius: 10px;
-        }
-
-        h1, p {
+        .image-wrapper {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 0.5rem;
             text-align: center;
-            color: #333;
+        }
+
+        .card img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 4px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 3rem;
+            border-top: 1px solid #e0e0e0;
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="index.html" class="nav-btn">Головна</a>
-        <a href="about.html" class="nav-btn">Про мене</a>
-        <a href="#" class="nav-btn">Контакти</a>
-    </nav>
+    <header>
+        <h1>Звіт про виконання атестації</h1>
+        <p>Інформатика та ІКТ</p>
+    </header>
 
-    <div class="paper-content">
-        <img src="736295ce72f0d00617ffa534e2824c3e.jpg" alt="Логотип" class="header-image">
+    <div class="container">
+        
+        <section class="student-info">
+            <h2>Рєзнікова Єлизавета</h2>
+            <p><strong>Клас:</strong> 8-A</p>
+        </section>
 
-        <h1>Вітаю на моєму новому сайті!</h1>
-        <p>Це головна сторінка, оформлена як аркуш паперу.</p>
-        <p>Тут ви можете розмістити будь-який опис вашого проекту.</p>
+        <div class="grid">
+            <!-- Група 2.1 -->
+            <article class="card">
+                <div class="card-header">Група 2.1: Програмування (Python)</div>
+                <div class="card-body">
+                    <p>Написано програму "Аналізатор пароля", яка перевіряє довжину рядка та наявність великої літери на початку.</p>
+                    <div class="image-wrapper">
+                        <img src="python.png" alt="Результат роботи Python програми">
+                    </div>
+                </div>
+            </article>
+
+            <!-- Група 2.2 -->
+            <article class="card">
+                <div class="card-header">Група 2.2: Аналіз даних (Excel/Calc)</div>
+                <div class="card-body">
+                    <p>Створено електронну таблицю з формулами для розрахунку середнього балу та побудовано порівняльну діаграму.</p>
+                    <div class="image-wrapper">
+                        <img src="excel.png" alt="Таблиця та порівняльна діаграма Excel">
+                    </div>
+                </div>
+            </article>
+        </div>
+
     </div>
+
+    <footer>
+        <p>&copy; 2026 Всі права захищені. Виконано в рамках навчального процесу.</p>
+    </footer>
 
 </body>
 </html>
